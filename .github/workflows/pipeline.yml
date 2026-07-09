@@ -12,18 +12,3 @@ jobs:
     permissions:
       id-token: write
       contents: read
-
-
-  # smoke_testing:
-  #   needs: verify_connection
-  #   uses: ./.github/workflows/smoke_test.yml
-  #   permissions:
-  #     id-token: write
-  #     contents: read
-
-  deploying:
-    needs: verify_connection
-    uses: ./.github/workflows/deploy.yml
-    permissions:
-      id-token: write
-      contents: read
