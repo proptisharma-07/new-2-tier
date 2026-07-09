@@ -1,7 +1,7 @@
 name: Smoke Testing For Infra and Networking
 
 on:
-  workflow_dispatch:
+  workflow_call:
 
 permissions:
   id-token: write
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: DEVENDRA-5470/banking-app-2-tier
+          repository: DEVENDRA-5470/new-2-tier
           ref: main
 
       - uses: aws-actions/configure-aws-credentials@v4
