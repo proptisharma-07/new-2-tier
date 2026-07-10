@@ -64,4 +64,4 @@ except Exception as e:
     print(f"\nDB ERROR ❌: {e}")
     sys.exit(1)
 
-print("\n✅ Smoke Test Passed")
+print("\n✅ Smoke Test Passed!")
