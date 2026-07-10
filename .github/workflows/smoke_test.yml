@@ -13,12 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: proptisharma-07/banking-APP-2-tier
+          repository: proptisharma-07/new-2-tier
           ref: main
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::250063290505:role/github-action-deploy-role
+          role-to-assume: arn:aws:iam::250063290505:role/propti-07-create-new-policy
           aws-region: eu-north-1
 
       - name: Upload smoke_test.py to S3
@@ -33,7 +33,7 @@ jobs:
             --targets "Key=tag:App,Values=flask" \
             --document-name "AWS-RunShellScript" \
             --parameters '{"commands":[
-              "aws s3 cp s3://720800607391-devops-scripts/smoke_test.py /tmp/smoke_test.py",
+              "aws s3 cp s3://250063290505-devops-scripts/smoke_test.py /tmp/smoke_test.py",
               "pip3 install pymysql -q 2>/dev/null",
               "python3 /tmp/smoke_test.py || exit 1",
               "rm /tmp/smoke_test.py"

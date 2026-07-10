@@ -10,9 +10,9 @@ permissions:
 env:
   VERSION: v1
   REGION: us-east-1
-  ECR: 720800607391.dkr.ecr.us-east-1.amazonaws.com
-  IMAGE: 720800607391.dkr.ecr.us-east-1.amazonaws.com/flaskapp-simple-bank
-  S3_BUCKET: s3://720800607391-devops-scripts
+  ECR: 250063290505.dkr.ecr.eu-north-1.amazonaws.com
+  IMAGE: 250063290505.dkr.ecr.eu-north-1.amazonaws.com/flaskapp-simple-bank
+  S3_BUCKET: s3://250063290505-devops-scripts
 
 jobs:
   build-and-deploy:
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: DEVENDRA-5470/banking-app-2-tier
+          repository: proptisharma-07/banking-app-2-tier
           ref: main
 
       - uses: aws-actions/configure-aws-credentials@v4
