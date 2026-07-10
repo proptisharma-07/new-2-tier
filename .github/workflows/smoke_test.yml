@@ -10,6 +10,7 @@ permissions:
 jobs:
   smoke:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -40,7 +41,8 @@ jobs:
             ]}' \
             --query 'Command.CommandId' \
             --output text \
-            --region us-east-1)
+            --region eu-north-1)
+
           echo "cmd_id=$CMD_ID" >> $GITHUB_OUTPUT
 
       - name: Show Results
@@ -50,14 +52,14 @@ jobs:
           aws ssm list-command-invocations \
             --command-id "${{ steps.smoke.outputs.cmd_id }}" \
             --details \
-            --region us-east-1 \
+            --region eu-north-1 \
             --output text
 
           FAILED=$(aws ssm list-command-invocations \
             --command-id "${{ steps.smoke.outputs.cmd_id }}" \
             --query "length(CommandInvocations[?Status=='Failed'])" \
             --output text \
-            --region us-east-1)
+            --region eu-north-1)
 
           [ "$FAILED" -gt 0 ] && \
             echo "::error::Smoke test failed on $FAILED instance(s)!" && \
