@@ -9,7 +9,7 @@ permissions:
 
 env:
   VERSION: v1
-  REGION: us-east-1
+  REGION: eu-north-1
   ECR: 250063290505.dkr.ecr.eu-north-1.amazonaws.com
   IMAGE: 250063290505.dkr.ecr.eu-north-1.amazonaws.com/flaskapp-simple-bank
   S3_BUCKET: s3://250063290505-devops-scripts
@@ -20,12 +20,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: proptisharma-07/banking-app-2-tier
+          repository: proptisharma-07/new-2-tier
           ref: main
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::720800607391:role/github-action-deploy-role
+          role-to-assume: arn:aws:iam::250063290505:role/propti-07-create-new-policy
           aws-region: ${{ env.REGION }}
 
       - name: Login to ECR
