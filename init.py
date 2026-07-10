@@ -3,7 +3,7 @@ import boto3
 import sys
 import pymysql
 
-client=boto3.client("ssm",region_name="us-east-1")
+client=boto3.client("ssm",region_name="eu-noth-1")
 
 def get_param(name):
     return client.get_parameter(
