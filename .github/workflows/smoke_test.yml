@@ -13,18 +13,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: DEVENDRA-5470/banking-app-2-tier
+          repository: proptisharma-07/banking-APP-2-tier
           ref: main
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::720800607391:role/github-action-deploy-role
-          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::250063290505:role/github-action-deploy-role
+          aws-region: eu-north-1
 
       - name: Upload smoke_test.py to S3
         run: |
-          aws s3 mb s3://720800607391-devops-scripts --region us-east-1 2>/dev/null || true
-          aws s3 cp smoke_test.py s3://720800607391-devops-scripts/smoke_test.py --region us-east-1
+          aws s3 mb s3://250063290505-devops-scripts --region eu-north-1 2>/dev/null || true
+          aws s3 cp smoke_test.py s3://250063290505-devops-scripts/smoke_test.py --region eu-north-1
 
       - name: Run Smoke Test on Fleet
         id: smoke
